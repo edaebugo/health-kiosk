@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src https: http://localhost:* http://127.0.0.1:*; manifest-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="theme-color" content="#1f6f5c">
+<meta name="referrer" content="no-referrer">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<title>보건실 접수</title>
+</head>
+<body>
+<header class="top">
+  <button id="logo" class="logo" type="button" aria-label="보건실">＋</button>
+  <span class="title">보건실 접수</span>
+  <span id="net" class="net" role="status" aria-live="polite"></span>
+</header>
+
+<main>
+  <section id="s-welcome" class="screen" hidden>
+    <h1>어떤 일로 왔나요?</h1>
+    <div class="choices">
+      <button id="k-supplies" class="big" type="button"><b>물품만 받아 가요</b><span>생리대·마스크 등 물품만 가져가요</span></button>
+      <button id="k-enter" class="big alt" type="button"><b>보건실에 들어가요</b><span>보건 선생님을 만나요</span></button>
+    </div>
+  </section>
+
+  <section id="s-form" class="screen" hidden>
+    <h1 id="f-title"></h1>
+    <form id="form" autocomplete="off" novalidate>
+      <label for="in-no">학번 (5자리)</label>
+      <input id="in-no" inputmode="numeric" pattern="[0-9]*" maxlength="5" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="next">
+      <label for="in-name">이름</label>
+      <input id="in-name" maxlength="40" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="done">
+      <p id="f-msg" class="msg" role="alert"></p>
+      <div class="row">
+        <button id="f-back" type="button" class="ghost">처음으로</button>
+        <button id="f-send" type="submit">접수하기</button>
+      </div>
+    </form>
+  </section>
+
+  <section id="s-result" class="screen" hidden>
+    <h1 id="r-title"></h1>
+    <p id="r-text" class="lead"></p>
+    <button id="r-back" type="button">처음으로</button>
+  </section>
+
+  <section id="s-pin" class="screen" hidden>
+    <h1>선생님 확인</h1>
+    <form id="pin-form" autocomplete="off">
+      <label for="in-pin">선생님 번호(PIN)</label>
+      <input id="in-pin" type="password" inputmode="numeric" maxlength="12" autocomplete="off">
+      <p id="pin-msg" class="msg" role="alert"></p>
+      <div class="row"><button id="pin-cancel" type="button" class="ghost">닫기</button><button type="submit">확인</button></div>
+    </form>
+  </section>
+
+  <section id="s-setup" class="screen wide" hidden>
+    <h1 id="su-title">기기 설정</h1>
+    <form id="setup-form" autocomplete="off" novalidate>
+      <label for="su-url">서버 주소</label><input id="su-url" autocomplete="off" spellcheck="false">
+      <label for="su-key">공개 키</label><input id="su-key" autocomplete="off" spellcheck="false">
+      <label for="su-token">기기 토큰 <small id="su-token-hint"></small></label><input id="su-token" type="password" autocomplete="off" spellcheck="false">
+      <label for="su-pin">선생님 번호(PIN) 6~12자리 숫자 <small id="su-pin-hint"></small></label><input id="su-pin" type="password" inputmode="numeric" maxlength="12" autocomplete="off">
+      <label for="su-pin2">PIN 한 번 더</label><input id="su-pin2" type="password" inputmode="numeric" maxlength="12" autocomplete="off">
+      <p id="su-msg" class="msg" role="alert"></p>
+      <div class="row">
+        <button id="su-close" type="button" class="ghost">닫기</button>
+        <button id="su-clear" type="button" class="danger" hidden>설정 지우기</button>
+        <button type="submit">저장</button>
+      </div>
+    </form>
+  </section>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>

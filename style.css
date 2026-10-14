@@ -1,0 +1,35 @@
+:root{--bg:#f4f7f5;--ink:#16302a;--muted:#5c726b;--brand:#1f6f5c;--brand-ink:#fff;--alt:#2b5d9b;--line:#cfdcd6;--danger:#a63a2e;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#10201c;--ink:#e8f1ee;--muted:#9bb3ab;--brand:#3aa88c;--brand-ink:#05231b;--alt:#6fa3e6;--line:#2c4740;--danger:#e0766a;--card:#18302a}}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font:20px/1.5 system-ui,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;-webkit-user-select:none;user-select:none;touch-action:manipulation;overscroll-behavior:none}
+input{-webkit-user-select:text;user-select:text}
+.top{display:flex;align-items:center;gap:14px;padding:14px 22px;border-bottom:1px solid var(--line)}
+.logo{width:48px;height:48px;border-radius:12px;border:0;background:var(--brand);color:var(--brand-ink);font-size:30px;font-weight:700;line-height:1;padding:0}
+.title{font-weight:700;font-size:22px}
+.net{margin-left:auto;font-size:15px;color:var(--muted)}
+.net::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;background:var(--muted);vertical-align:middle}
+.net.on::before{background:#2fa36b}.net.off::before{background:var(--danger)}
+main{padding:28px 22px;max-width:760px;margin:0 auto}
+.screen[hidden]{display:none}
+h1{font-size:30px;margin:6px 0 22px}
+.choices{display:grid;gap:18px}
+.big{display:flex;flex-direction:column;align-items:flex-start;gap:6px;min-height:120px;padding:22px 26px;border-radius:20px;border:0;background:var(--brand);color:var(--brand-ink);text-align:left;font:inherit}
+.big.alt{background:var(--alt);color:#fff}
+.big b{font-size:28px}.big span{font-size:18px;opacity:.92}
+label{display:block;margin:16px 0 6px;font-weight:600}
+label small{font-weight:400;color:var(--muted)}
+input{width:100%;font:inherit;font-size:26px;padding:14px 16px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink)}
+input:focus{outline:3px solid var(--brand);border-color:var(--brand)}
+.wide input{font-size:20px;padding:10px 12px}
+.row{display:flex;gap:14px;margin-top:22px}
+button{font:inherit;font-size:22px;font-weight:700;min-height:62px;padding:0 28px;border-radius:16px;border:0;background:var(--brand);color:var(--brand-ink)}
+.row button{flex:1}
+button.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+button.danger{background:var(--danger);color:#fff}
+button:disabled{opacity:.5}
+.msg{min-height:1.6em;margin:12px 0 0;color:var(--danger);font-weight:600}
+.lead{font-size:26px;margin:0 0 28px}
+#r-title{font-size:38px}
+.ok #r-title{color:var(--brand)}
+@media (max-width:560px){body{font-size:18px}h1{font-size:26px}.big b{font-size:24px}}
